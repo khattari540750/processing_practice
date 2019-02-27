@@ -8,8 +8,7 @@ void setup()
 
 
 void draw()
-{
-}
+{}
 
 
 

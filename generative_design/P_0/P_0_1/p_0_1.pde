@@ -109,14 +109,10 @@ void mouseReleased()
 {
   println("The mose button has been released.");
 }
-void mousePressed() {
-}
-void mouseMoved() {
-}
-void keyPressed() {
-}
-void keyReleased() {
-}
+void mousePressed() {}
+void mouseMoved() {}
+void keyPressed() {}
+void keyReleased() {}
 
 
 
