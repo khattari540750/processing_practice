@@ -1,24 +1,34 @@
+import processing.pdf.*;
+import java.util.Calendar;
+
+
+
+boolean savePDF = false;
 float segmentCount = 6;
+int radius = 300;
 
 
 
 void setup()
 {
-  size(800, 400);
-  noStroke();
+  size(800, 800);
 }
 
 
 
 void draw()
 {
-  float radius;
-  if(width > height) radius = height/2;
-  else radius = width/2;
-
+  if (savePDF) beginRecord(PDF, timestamp()+".pdf");
+  
+  noStroke();
   colorMode(HSB, 360, width, height);
   background(360);
 
+  int radius;
+  if(width > height) radius = height/2;
+  else radius = width/2;
+  
+  
   float angleStep = 360/segmentCount;
 
   beginShape(TRIANGLE_FAN);
@@ -30,12 +40,20 @@ void draw()
     fill(angle, mouseX, mouseY);
   }
   endShape();
+  
+  if (savePDF) {
+    savePDF = false;
+    endRecord();
+  }
 }
 
 
 
 void keyReleased()
 {
+  if (key=='s' || key=='S') saveFrame(timestamp()+"_##.png");
+  if (key=='p' || key=='P') savePDF = true;
+  
   switch(key) {
   case '1':
     segmentCount = 360;
@@ -53,4 +71,12 @@ void keyReleased()
     segmentCount = 6;
     break;
   }
+}
+
+
+
+// timestamp
+String timestamp() {
+  Calendar now = Calendar.getInstance();
+  return String.format("%1$ty%1$tm%1$td_%1$tH%1$tM%1$tS", now);
 }
