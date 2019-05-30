@@ -84,10 +84,10 @@ void draw()
     ellipse(posX+stepSize/2, posY+stepSize/2, num, num);
   }
   
-  if (frameCount < 600) {
-    saveFrame("frames"+ str(tileCount) +"/####.tif");
+  if (frameCount < 1500) {
+    saveFrame("frames/####.tif");
   }
-  if (frameCount == 600) {
+  if (frameCount == 1500) {
     println("done!");
   }
 }
