@@ -19,7 +19,7 @@ float imgPosY;
 
 void settings()
 {
-  size(600, 600);
+  size(512, 512);
 }
 
 
@@ -30,7 +30,7 @@ void setup()
   smooth();
   noStroke();
 
-  img = loadImage("yen.jpg");
+  img = loadImage("lena.jpg");
   imgPosX = width/2 - img.width/2; 
   imgPosY = height/2 - img.height/2;
 
@@ -41,7 +41,7 @@ void setup()
 
 void draw()
 {
-  for (int i=0; i<=500; i++) {
+  for (int i=0; i<=700; i++) {
 
     direction = round(random(0, 3));
 
@@ -77,7 +77,7 @@ void draw()
       num = 0.63;
     } else {
       color c = img.get(int(posX - imgPosX), int(posY - imgPosY));
-      num = map(red(c) + green(c) + blue(c), 0, 255*3, 2.3, 0.63);
+      num = map(red(c) + green(c) + blue(c), 0, 255*3, 2.3, 0.23);
     }
 
     fill(0, 40);
