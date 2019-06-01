@@ -56,8 +56,13 @@ void draw()
     }
   }
   
-  float angle1 = atan2(newX-x[closestIndex], newZ-z[closestIndex]);
-  float angle2 = atan2();
+  // calc nerlest point
+  float pan = atan2(newX-x[closestIndex], newZ-z[closestIndex]);
+  float tilt = atan2(newX-x[closestIndex], newZ-z[closestIndex]);
+  x[currentCount] = x[closestIndex] + cos(pan) * (r[closestIndex]+newR);
+  y[currentCount] = y[closestIndex] + cos(tilt) * (r[closestIndex]+newR);
+  z[currentCount] = z[closestIndex] + sin(pan) * (r[closestIndex]+newR);
+  r[currentCount] = newR;
   
   //float angle1 = atan2(newY-y[closestIndex], newX-x[closestIndex]);
   //float angle2 = atan2(newY-y[closestIndex], newZ-z[closestIndex]);
