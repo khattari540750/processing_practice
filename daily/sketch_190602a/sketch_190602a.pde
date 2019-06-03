@@ -84,7 +84,7 @@ void draw()
   
   // save
   if (frameCount < 1500) {
-    saveFrame("frames/####.tif");
+    //saveFrame("frames/####.tif");
   }
   if (frameCount == 1500) {
     println("done!");
